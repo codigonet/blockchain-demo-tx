@@ -1,0 +1,176 @@
+### Flujo de Pruebas
+
+###
+echo "###############################"
+echo "Conectar nodos a Nodo 1..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{
+    "nodes": ["http://127.0.0.1:5002",
+              "http://127.0.0.1:5003",
+              "http://127.0.0.1:5004"]
+}' \
+http://localhost:5001/connect_node
+
+###
+echo "###############################"
+echo "Conectar nodos a Nodo 2..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{
+    "nodes": ["http://127.0.0.1:5001",
+              "http://127.0.0.1:5003",
+              "http://127.0.0.1:5004"]
+}' \
+http://localhost:5002/connect_node
+
+###
+echo "###############################"
+echo "Conectar nodos a Nodo 3..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{
+    "nodes": ["http://127.0.0.1:5001",
+              "http://127.0.0.1:5002",
+              "http://127.0.0.1:5004"]
+}' \
+http://localhost:5003/connect_node
+
+###
+echo "###############################"
+echo "Conectar nodos a Nodo 4..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{
+    "nodes": ["http://127.0.0.1:5001",
+              "http://127.0.0.1:5002",
+              "http://127.0.0.1:5003"]
+}' \
+http://localhost:5004/connect_node
+
+#####################################################################
+echo "###############################"
+echo "Agregar transacción 1 en Nodo 4..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{"sender":"Peter", "receiver":"Paul", "amount":"100"}' \
+http://localhost:5004/add_transaction
+
+###
+echo "###############################"
+echo "Agregar transacción 2 en Nodo 4..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{"sender":"Paul", "receiver":"Mary", "amount":"50"}' \
+http://localhost:5004/add_transaction
+
+###
+echo "###############################"
+echo "Minar bloque en Nodo 4..."
+curl http://localhost:5004/mine_block
+
+#####################################################################
+echo "###############################"
+echo "Obtener cadena en Nodo 1..."
+curl http://localhost:5001/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 2..."
+curl http://localhost:5002/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 3..."
+curl http://localhost:5003/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 4..."
+curl http://localhost:5004/get_chain
+
+#####################################################################
+echo "###############################"
+echo "Reemplazar cadena en Nodo 1..."
+curl http://localhost:5001/replace_chain
+
+###
+echo "###############################"
+echo "Reemplazar cadena en Nodo 2..."
+curl http://localhost:5002/replace_chain
+
+###
+echo "###############################"
+echo "Reemplazar cadena en Nodo 3..."
+curl http://localhost:5003/replace_chain
+
+###
+echo "###############################"
+echo "Reemplazar cadena en Nodo 4..."
+curl http://localhost:5004/replace_chain
+
+#####################################################################
+echo "###############################"
+echo "Agregar transacción 3 en Nodo 1..."
+curl -X POST -H 'Content-Type: application/json' \
+--data-raw '{"sender":"Mary", "receiver":"Ema", "amount":"25"}' \
+http://localhost:5001/add_transaction
+
+###
+echo "###############################"
+echo "Minar bloque en Nodo 1..."
+curl http://localhost:5001/mine_block
+
+#####################################################################
+echo "###############################"
+echo "Obtener cadena en Nodo 1..."
+curl http://localhost:5001/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 2..."
+curl http://localhost:5002/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 3..."
+curl http://localhost:5003/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 4..."
+curl http://localhost:5004/get_chain
+
+#####################################################################
+echo "###############################"
+echo "Reemplazar cadena en Nodo 1..."
+curl http://localhost:5001/replace_chain
+
+###
+echo "###############################"
+echo "Reemplazar cadena en Nodo 2..."
+curl http://localhost:5002/replace_chain
+
+###
+echo "###############################"
+echo "Reemplazar cadena en Nodo 3..."
+curl http://localhost:5003/replace_chain
+
+###
+echo "###############################"
+echo "Reemplazar cadena en Nodo 4..."
+curl http://localhost:5004/replace_chain
+
+#####################################################################
+echo "###############################"
+echo "Obtener cadena en Nodo 1..."
+curl http://localhost:5001/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 2..."
+curl http://localhost:5002/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 3..."
+curl http://localhost:5003/get_chain
+
+###
+echo "###############################"
+echo "Obtener cadena en Nodo 4..."
+curl http://localhost:5004/get_chain
