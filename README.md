@@ -43,7 +43,29 @@ source test.rest
 
 ## Pasos para probar el ejercicio desde Postman
 
-- Utilizar las siguientes URL en orden:
+- Importar en Postman:
+    <a href="Tarea2.postman_collection.json">Colección Postman</a>
 
-- También se puede importar la colección Postman:
-<a href="">Colección Postman</a>
+- Conectar los 4 nodos.
+
+- Ejecutar 2 transacciones y un minado de bloque en Nodo 4.
+- Obtener cadenas de los 4 nodos:
+    <img src="img/1.png" />
+    <img src="img/2.png" />
+    <img src="img/3.png" />
+    <img src="img/4.png" />
+    
+- Reemplazar la cadena en los 4 nodos.
+- Ejecutar 1 transacción y un minado de bloque en Nodo 1.
+- Obtener cadenas de los 4 nodos:
+    <img src="img/5.png" />
+    <img src="img/6.png" />
+    <img src="img/7.png" />
+    <img src="img/8.png" />
+    
+- Reemplazar la cadena en los 4 nodos.
+- Obtener cadenas de los 4 nodos:
+    <img src="img/9.png" />
+    <img src="img/10.png" />
+    <img src="img/11.png" />
+    <img src="img/12.png" />
